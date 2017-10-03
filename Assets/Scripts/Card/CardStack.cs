@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CardStack : MonoBehaviour, IInteractable
 {
@@ -83,7 +81,7 @@ public class CardStack : MonoBehaviour, IInteractable
 
     public int Pop()
     {
-        if (cards.Count <= 0) return -1;
+        if ((cards.Count <= 0) || !isInteractable) return -1;
 
         int temp = cards[0];
         cards.RemoveAt(0);
@@ -95,7 +93,7 @@ public class CardStack : MonoBehaviour, IInteractable
 
     public void Push(int card)
     {
-        if (card == -1) return;
+        if ((card == -1) || !isInteractable) return;
 
         cards.Add(card);
 

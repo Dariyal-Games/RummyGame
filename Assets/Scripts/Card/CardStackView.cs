@@ -103,11 +103,13 @@ public class CardStackView : MonoBehaviour
 
     private void CardModel_Deselected(object sender, DeselectedEventArgs e)
     {
-        e.SelectedObject.transform.position -= selectedOffset;
+        if (isInteractable)
+            e.SelectedObject.transform.position -= selectedOffset;
     }
 
     private void CardModel_Selected(object sender, SelectedEventArgs e)
     {
-        e.SelectedObject.transform.position += selectedOffset;
+        if (isInteractable)
+            e.SelectedObject.transform.position += selectedOffset;
     }
 }
